@@ -22,9 +22,21 @@ var index_default = {
         return new Response("Unauthorized", { status: 401 });
       }
 
-      const verify = await VerifyToken(token)
+      const response = await fetch('https://api.now.com.ve/verify-session', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({
+          token
+        })
+      })
 
-      if(verify === null) {
+      if(response.status === 401) {
+        return new Response("Unauthorized", { status: 401 });
+      }
+
+       if(response.status === 500) {
         return new Response("Unauthorized", { status: 401 });
       }
 
