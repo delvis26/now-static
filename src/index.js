@@ -22,7 +22,7 @@ var index_default = {
         return new Response("Unauthorized", { status: 401 });
       }
 
-      const verify = VerifyToken(token)
+      const verify = await VerifyToken(token)
 
       if(verify === null) {
         return new Response("Unauthorized", { status: 401 });
