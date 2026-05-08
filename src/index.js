@@ -1,6 +1,6 @@
 // src/index.js
 import jwt from "jsonwebtoken"
-import { VerifyToken } from "./services/verify-token";
+import { VerifyToken } from "./services/verify-token"
 
 var index_default = {
   async fetch(request, env) {
